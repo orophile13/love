@@ -1,0 +1,299 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will You Marry Me?</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
+
+        body {
+            font-family: 'Satisfy', cursive;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        .video-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+        }
+
+        .video-background video {
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            z-index: 9999;
+        }
+
+        .heart-loader {
+            width: 50px;
+            height: 45px;
+            position: relative;
+            animation: beat 1s infinite;
+        }
+
+        .heart-text {
+            display: block;
+            text-align: center;
+            margin-top: 10px;
+            font-size: 1.2rem;
+        }
+
+        .heart-loader:before,
+        .heart-loader:after {
+            content: "";
+            background-color: #e74c3c;
+            border-radius: 50px 50px 0 0;
+            height: 45px;
+            width: 45px;
+            position: absolute;
+            left: 0;
+            transform: rotate(-45deg);
+        }
+
+        .heart-loader:after {
+            left: auto;
+            right: 0;
+            transform: rotate(45deg);
+        }
+
+        @keyframes beat {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.2);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .container {
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 70px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            max-width: 1400px;
+            width: 90%;
+            position: relative;
+            right: -210px;
+            bottom: -10px;
+            z-index: 1;
+            opacity: 0;
+            top: 60px;
+            transform: scale(0.8);
+            margin-bottom: 50px;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: #e74c3c;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .heart-container {
+            position: relative;
+            width: 100px;
+            height: 90px;
+            margin: 30px auto;
+        }
+
+        .heart {
+            width: 100%;
+            height: 100%;
+            fill: #e74c3c;
+            filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.3));
+            animation: heartBeat 2s infinite;
+        }
+
+        @keyframes heartBeat {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        p {
+            font-size: 1.5rem;
+            line-height: 1.5;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        button {
+            font-family: 'Satisfy', cursive;
+            font-size: 1.5rem;
+            background-color: #e74c3c;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            margin: 10px;
+        }
+
+        button:hover {
+            background-color: #c0392b;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .beat {
+            animation: beat 1s infinite;
+        }
+
+        #messageContainer {
+            margin-top: 20px;
+            font-size: 1.2rem;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        .heart {
+            color: #e74c3c;
+            font-size: 1.5rem;
+            animation: heartBeat 1s infinite;
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            p {
+                font-size: 1.2rem;
+            }
+
+            button {
+                font-size: 1.2rem;
+            }
+        }
+
+        .video-background {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        z-index: -1;
+    }
+    .video-background video {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        min-width: 100%;
+        min-height: 100%;
+        width: auto;
+        height: auto;
+        z-index: -1;
+    }
+
+    </style>
+</head>
+<body>
+    <div class="video-background">
+        <video src="./pics/152499-803144007.mp4" autoplay muted loop width="100%"></video>
+    </div>
+
+    <div class="preloader">
+        <div class="heart-loader">
+            <span class="heart-text">I Love You Bhoomi</span>
+        </div>
+    </div>
+    <div class="container">
+        <h1>Will You Marry Me?</h1>
+        <div class="heart-container">
+            <svg class="heart" viewBox="0 0 32 29.6">
+                <path d="M23.6,0c-3.4,0-6.3,2.7-7.6,5.6C14.7,2.7,11.8,0,8.4,0C3.8,0,0,3.8,0,8.4c0,9.8,9.5,11.9,16,21.2
+                c6.1-9.3,16-11.4,16-21.2C32,3.8,28.2,0,23.6,0z"/>
+            </svg>
+        </div>
+        <p>My dearest <span class="name">Bhoomi</span>,</p>
+        <p>Hey, I've been thinking a lot lately, and I realized that spending time with you is the highlight of my days. You bring so much joy and laughter into my life, and I can't help but imagine what it would be like if we were more than just friends. Would you be interested in taking our friendship to the next level and becoming my girlfriend?
+        </p>
+        <p>So, with all my heart, I ask you...</p>
+        <button id="proposal-btn" onclick="showProposal()">
+            <i class="fas fa-ring"></i> Click Here
+        </button>
+        <div id="answer" class="hidden">
+            <p>Yes! A million times yes!</p>
+            <p>I love you with all my heart, and I can't wait to start our forever together.</p>
+            <i class="fas fa-heart beat"></i>
+        </div>
+        <div id="messageContainer"></div>
+        <button onclick="showPickupLine()">Show Pickup Line</button>
+        <button onclick="showDilKiBaat()">Show Dil Ki Baat</button>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+    <script>
+        const proposalBtn = document.getElementById('proposal-btn');
+const answerDiv = document.getElementById('answer');
+const heartContainer = document.querySelector('.heart-container');
+const preloader = document.querySelector('.preloader');
+const container = document.querySelector('.container');
+const messageContainer = document.getElementById('messageContainer');
+
+gsap.set(heartContainer, { rotation: 45 });
+
+window.addEventListener('load', () => {
+    gsap.to(preloader, { autoAlpha: 0, delay: 2, onComplete: () => preloader.style.display = 'none' });
+    gsap.to(container, { autoAlpha: 1, scale: 1, delay: 2.2, ease: "elastic.out(1, 0.3)" });
+});
+
+function showProposal() {
+    proposalBtn.style.display = 'none';
+    answerDiv.classList.remove('hidden');
+
+    gsap.to(heartContainer, { rotation: 360, duration: 2, ease: "elastic.out(1, 0.3)" });
+}
+
+function showPickupLine() {
+    messageContainer.innerHTML += "<div class='heart'>&#10084;</div><br><br>Tum mere dil ki code ki perfect output ho, jaise har ek line tumhare bina incomplete ho";
+}
+
+function showDilKiBaat() {
+    messageContainer.innerHTML += "<div class='heart'>&#10084;</div><br><br>I Love You Bhumika ♥";
+}
+
+proposalBtn.addEventListener('click', showProposal);
+    </script>
+</body>
+</html>
