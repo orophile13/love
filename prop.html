@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bhumi</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-image: url("./pics/love-6390890.jpg");
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 24px;
+            text-align: center;
+            margin: 0;
+        }
+        .container {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #ff6961;
+            color: white;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #ff4136;
+        }
+        .message {
+            margin-top: 20px;
+            font-size: 20px;
+            font-weight: bold;
+            text-align: center;
+        }
+        .heart {
+            color: red;
+            font-size: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Bhumi, I want to express something special to you...</h2>
+        <button onclick="showPickupLine()">Pickup Line</button>
+        <button onclick="showDilKiBaat()">Dil KI Baat</button>
+        <div id="messageContainer" class="message"></div>
+    </div>
+
+    <script>
+        var i = 0;
+        var txt1 = "<br>Hey Babe...! <br>I want to say something special to you...! <br>So, Please read everything carefully...! ";
+        
+        function typeWriter() {
+            if (i < txt1.length) {
+                document.getElementById("messageContainer").innerHTML += txt1.charAt(i);
+                i++;
+                setTimeout(typeWriter, 50);
+            }
+        }
+        typeWriter();
+
+        function showPickupLine() {
+            document.getElementById("messageContainer").innerHTML += "<div class='heart'>&#10084;</div><br><br>Tum mere dil ki code ki perfect output ho, jaise har ek line tumhare bina incomplete ho";
+        }
+
+        function showDilKiBaat() {
+            document.getElementById("messageContainer").innerHTML += "<div class='heart'>&#10084;</div><br><br>I Love You Bhumika ♥";
+        }
+    </script>
+</body>
+</html>
